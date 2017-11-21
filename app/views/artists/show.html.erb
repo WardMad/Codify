@@ -1,7 +1,13 @@
 <h4><li class="sidebar-item"><%= link_to "Artists Overview", artists_path, class: "sidebar-link" %></li>
 </h4>
 <div class="panel panel-primary">
-
+  <div class="img-circle" alt="Cinque Terre">
+  <% @artist.photos.each do |photo| %>
+   <div class="panel-heading">
+    <%= image_tag photo.image.thumbnail %>
+    </div>
+  </div>
+    <%end%>
 <h3> <%=@artist.name%></h3>
 
 <h4> Age:<%= @artist.age %> </h4>
@@ -11,17 +17,6 @@
   <a  target="_tab" <%= link_to "More Info? ", @artist.url, class: "btn btn-success"%></a>
 </div>
 
-
-
-
-
-<div class="img-circle" alt="Cinque Terre">
-<% @artist.photos.each do |photo| %>
- <div class="panel-heading">
-  <%= image_tag photo.image.thumbnail %>
-  </div>
-</div>
-  <%end%>
 
   <div class="progress-bar", role="progressbar" aria-valuenow="3"
   aria-valuemin="1" aria-valuemax="100" style="width:100%">
